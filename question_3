@@ -1,0 +1,28 @@
+public class mid_term_3 {
+    public static int equillibrium(int nums[]){
+        int sum=0;
+        for(int i=0;i<nums.length;i++){
+            sum += nums[i];
+        }
+
+        int leftsum=0;
+        for(int i=0;i<nums.length;i++){
+           
+            int rightsum=sum - leftsum -nums[i];    //all sum excluding i eg i=0 mean 1 excluded
+
+            if(leftsum == rightsum){
+                return i;
+            }
+            leftsum+=nums[i];    // strt with i=0  
+        }
+        return -1;
+    }
+
+
+    public static void main(String[] args) {
+        int nums[]={1,7,3,6,5,6};
+        int result=equillibrium(nums);
+        System.out.println(result);
+
+    }
+}
