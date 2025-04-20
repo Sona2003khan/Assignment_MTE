@@ -1,0 +1,37 @@
+public class mid_term_5 {              //brute force n*k time 
+    public static int kadens(int nums[] ,int k){
+        int n=nums.length;
+        
+        int max=Integer.MIN_VALUE;
+        for(int i=0 ; i <= n-k ; i++){          //run till n-k means 7-3=4
+            int sum=0;
+            for(int j = i ; j < i+k ; j++){         //as i increase just shrink window size
+                sum += nums[j];
+            }
+            max=Math.max(max ,sum);
+        }
+        return max;
+      //  System.out.println(max);
+    }
+    public static void main(String[] args) {
+        int nums[]={1,5,4,2,9,9,9};
+        int k=3;
+        int result = kadens(nums ,k);
+        System.out.println(result);
+    }
+}
+
+//can do by sliding window for better time complexity o(n)
+
+/*int windowSum = 0;
+    for (int i = 0; i < k; i++) {
+        windowSum += nums[i];
+    }
+
+    int maxSum = windowSum;
+    for (int i = k; i < nums.length; i++) {
+        windowSum += nums[i] - nums[i - k];
+        maxSum = Math.max(maxSum, windowSum);
+    }
+
+    return maxSum; */
