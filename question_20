@@ -1,0 +1,29 @@
+public class mid_term_20 {
+
+    public static boolean hasUniqueDigit(int n){
+        int arr[]=new int[10];
+        while(n > 0){
+            int digit=n%10;
+            arr[digit]++;
+            if(arr[digit] > 1){
+                return false;
+            }
+            n /= 10;
+        }
+        return true;
+    }
+    public static int countNumberWithUniqueDigits(int n){
+        int count=0;
+        for(int i=0;i<=n;i++){
+            if(hasUniqueDigit(i)){
+                count++;
+            }
+        }
+        return count;
+    }
+    public static void main(String[] args) {
+        int n=100;
+        int result=countNumberWithUniqueDigits(n);
+        System.out.println(result);  
+    }
+}
