@@ -1,0 +1,29 @@
+import java.util.HashMap;
+
+public class mid_term_16 {
+
+    public static void main(String[] args) {
+        int nums[]={2,2,1,1,1,2,2};
+        int result=majority_element(nums);
+        System.out.println(result);
+    }
+    
+    public static int majority_element(int nums[]){
+        int n=nums.length;
+        HashMap<Integer ,Integer> map=new HashMap<>();
+
+        for(int i=0;i<n;i++){
+            int var=nums[i];
+            if(map.containsKey(var)){
+                map.put(var, map.get(var)+1);
+            }
+            else{
+                map.put(var, 1);
+            }
+            if(map.get(var) > n/2 &&){
+                return var;
+            }
+        }
+        return -1;
+    }
+}
