@@ -1,0 +1,49 @@
+import java.util.*;
+
+public class mid_term_38 {
+
+    public static List<List<Integer>> permute(int[] nums) {
+        List<List<Integer>> result = new ArrayList<>();
+        generatePermutations(nums, 0, result);
+        return result;
+    }
+
+    private static void generatePermutations(int[] nums, int index, List<List<Integer>> result) {
+        if (index == nums.length) {
+            // Convert array to list and add to result
+            List<Integer> perm = new ArrayList<>();
+            for (int num : nums) {
+                perm.add(num);
+            }
+            result.add(perm);
+            return;
+        }
+
+        for (int i = index; i < nums.length; i++) {
+            // Swap current index with i
+            swap(nums, index, i);
+
+            // Recurse for the rest
+            generatePermutations(nums, index + 1, result);
+
+            // Backtrack
+            swap(nums, index, i);
+        }
+    }
+
+    private static void swap(int[] nums, int i, int j) {
+        int temp = nums[i];
+        nums[i] = nums[j];
+        nums[j] = temp;
+    }
+
+    public static void main(String[] args) {
+        int[] nums = {1, 2, 3};
+        List<List<Integer>> permutations = permute(nums);
+
+        System.out.println("All permutations:");
+        for (List<Integer> p : permutations) {
+            System.out.println(p);
+        }
+    }
+}
