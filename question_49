@@ -1,0 +1,74 @@
+class ListNode {
+    int val;
+    ListNode next;
+    ListNode(int x) { val = x; }
+}
+
+public class mid_term_49 {
+
+    public static ListNode getIntersectionNode(ListNode headA, ListNode headB) {
+        
+        // If either list is null, return null (no intersection)
+        if (headA == null || headB == null) {
+            return null;
+        }
+        
+        // Calculate the lengths of both linked lists
+        int lenA = getLength(headA);
+        int lenB = getLength(headB);
+        
+        ListNode pA = headA;
+        ListNode pB = headB;
+        
+        // Align the starting points of both lists by moving the pointer of the longer list
+        if (lenA > lenB) {
+            for (int i = 0; i < lenA - lenB; i++) {
+                pA = pA.next;
+            }
+        } else if (lenB > lenA) {
+            for (int i = 0; i < lenB - lenA; i++) {
+                pB = pB.next;
+            }
+        }
+        
+        // Traverse both lists together and check for intersection
+        while (pA != null && pB != null) {
+            if (pA == pB) {
+                return pA;  // Intersection found
+            }
+            pA = pA.next;
+            pB = pB.next;
+        }
+        
+        return null;  // No intersection
+    }
+    
+    // Helper function to calculate the length of a linked list
+    public static int getLength(ListNode head) {
+        int length = 0;
+        ListNode current = head;
+        while (current != null) {
+            length++;
+            current = current.next;
+        }
+        return length;
+    }
+
+    public static void main(String[] args) {
+        // Create two linked lists that intersect
+        ListNode headA = new ListNode(1);
+        headA.next = new ListNode(2);
+        headA.next.next = new ListNode(3);
+        
+        ListNode headB = new ListNode(4);
+        headB.next = headA.next.next;  // Intersection at node with value 3
+        
+        ListNode intersection = getIntersectionNode(headA, headB);
+        
+        if (intersection != null) {
+            System.out.println("Intersection at node with value: " + intersection.val);
+        } else {
+            System.out.println("No intersection.");
+        }
+    }
+}
