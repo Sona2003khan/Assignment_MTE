@@ -1,0 +1,28 @@
+public class mid_term_19 {
+    public static int maximum_product_subarray(int nums[]){
+        int n=nums.length;
+        int max=Integer.MIN_VALUE;
+
+        int left[]=new int[n];
+        left[0]=nums[0];
+        for(int i=1;i<n;i++){
+            left[i]=nums[i]*left[i-1];
+        }
+
+        int right[]=new int[n];
+        right[n-1]=nums[n-1];
+        for(int i=n-2;i>=0;i--){
+            right[i]=nums[i]*right[i+1];
+        }
+
+        for(int i=0;i<n;i++){
+            max = Math.max(Math.max(left[i] ,right[i]) ,max);
+        }
+        return max;
+    }
+    public static void main(String[] args) {
+        int nums[]={2,3,-2,4};
+        int result=maximum_product_subarray(nums);
+        System.out.println(result);
+    }
+}
