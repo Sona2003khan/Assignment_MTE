@@ -1,0 +1,26 @@
+public class mid_term_15 {
+    public static int k_smallest_element(int arr[][]){
+        int n=arr.length;
+
+        int min=Integer.MAX_VALUE;
+        int sec_min=Integer.MAX_VALUE;
+        for(int i=0;i<n;i++){
+            for(int j=0;j<n;j++){
+                if(arr[i][j]<min){
+                    sec_min=min;
+                    min=arr[i][j];
+                }
+                if(arr[i][j]>min && arr[i][j]<sec_min){
+                    sec_min=arr[i][j];
+                }
+            }
+        }
+        return sec_min;
+    }
+
+    public static void main(String[] args) {
+        int arr[][]=  { {2, 7, 5}, {1, 9, 0}, {6, 4, 3} };
+        int result=k_smallest_element(arr);
+        System.out.println(result);
+    }
+}
