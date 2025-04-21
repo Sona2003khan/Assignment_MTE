@@ -1,0 +1,61 @@
+class ListNode {
+    int val;
+    ListNode next;
+    ListNode(int val) { this.val = val; }
+}
+
+public class mid_term_27{
+
+    public static ListNode getIntersectionNode(ListNode headA, ListNode headB) {
+        if (headA == null || headB == null) return null;
+
+        ListNode pA = headA;
+        ListNode pB = headB;
+
+        while (pA != pB) {
+            pA = (pA == null) ? headB : pA.next;
+            pB = (pB == null) ? headA : pB.next;
+        }
+
+        return pA; 
+    }
+
+    public static void printList(ListNode node) {
+        while (node != null) {
+            System.out.print(node.val);
+            if (node.next != null) System.out.print(" -> ");
+            node = node.next;
+        }
+        System.out.println();
+    }
+
+    public static void main(String[] args) {
+
+        ListNode common = new ListNode(3);
+        common.next = new ListNode(4);
+        common.next.next = new ListNode(5);
+
+        ListNode headA = new ListNode(1);
+        headA.next = new ListNode(2);
+        headA.next.next = common;
+
+        ListNode headB = new ListNode(9);
+        headB.next = new ListNode(8);
+        headB.next.next = common;
+
+        System.out.print("List A: ");
+        printList(headA);
+
+        System.out.print("List B: ");
+        printList(headB);
+
+        ListNode intersection = getIntersectionNode(headA, headB);
+
+        if (intersection != null) {
+            System.out.println("Intersection at node with value: " + intersection.val);
+        } else {
+            System.out.println("No intersection.");
+        }
+    }
+}
+
