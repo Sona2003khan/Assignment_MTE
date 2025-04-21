@@ -1,0 +1,43 @@
+public class mid_term_28 {
+    
+    int[] arr;
+    int top1, top2;
+
+    public mid_term_28(int size) {
+        arr = new int[size];
+        top1 = -1;  
+        top2 = size; 
+    }    
+
+    
+    public void push1(int value) {
+        if (top1 + 1 < top2) arr[++top1] = value;
+        else System.out.println("Stack 1 Overflow");
+    }
+
+    public void push2(int value) {
+        if (top1 + 1 < top2) arr[--top2] = value;
+        else System.out.println("Stack 2 Overflow");
+    }
+
+    public int pop1() {
+        return (top1 >= 0) ? arr[top1--] : -1;
+    }
+
+    public int pop2() {
+        return (top2 < arr.length) ? arr[top2++] : -1;
+    }
+
+    public static void main(String[] args) {
+        mid_term_28 stacks = new mid_term_28(6);
+
+        stacks.push1(1);
+        stacks.push1(2);
+        stacks.push2(6);
+        stacks.push2(5);
+
+        System.out.println("Pop from Stack 1: " + stacks.pop1());
+        System.out.println("Pop from Stack 2: " + stacks.pop2());
+    }
+}
+
