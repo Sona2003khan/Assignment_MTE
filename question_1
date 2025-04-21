@@ -1,32 +1,10 @@
-public class mid_term_2 {                //Time = O(q * n)   q is no query and n is   && n is  length of query range
+A prefix sum array is an array that stores the cumulative sum of elements from the beginning of a given array up to each index. This concept is used to answer range sum queries efficiently.
+2. Applications of Prefix Sum Array
+✅ 1. Range Sum Queries
+Efficiently find the sum of elements between two indices l and r in O(1) time after O(n) preprocessing.
 
-    public static int range_sum(int nums[] ,int left ,int right){   //sum h range ka from left to right
-        int sum=0;
-        for(int i=left;i<=right;i++){
-            sum+=nums[i];
-        }
-        return sum;
-    }
+✅ 2. Count of Elements in a Range
+In binary arrays (0s and 1s), prefix sums can be used to count how many 1s are present between any two indices.
 
-    public static void range(int nums[] ,int query[][]){
-        for(int i=0;i<query.length;i++){                     //convert range from array to index
-            int l=query[i][0];
-            int r=query[i][1];
-
-            if (l < 0 || r >= nums.length || l > r) {
-                System.out.println("Invalid range: [" + l + ", " + r + "]");  //range exceed from array
-                continue;
-            }
-
-            int result=range_sum(nums, l, r);
-            System.out.println(result);
-        }
-    }
-
-    public static void main(String args[]){
-        int nums[]={5,7,9,2,6};
-        int query[][]={{1,3},{2,7},{0,2}};
-        range(nums ,query);
-    }
-}
-// can do from prefix sum too for better time complexity
+✅ 3. Detecting Subarrays with a Given Sum
+Used to check if a subarray with a specific sum exists using prefix sums and hash maps (commonly in more advanced techniques).
