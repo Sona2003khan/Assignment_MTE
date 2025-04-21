@@ -1,0 +1,28 @@
+import java.util.Arrays;
+
+public class mid_term_21 {
+    public static int count_bit(int n){
+        int count=0;
+        while(n > 0){
+            if(n % 2 == 1){
+                count++;
+            }
+            n /= 2;
+        }
+        return count;
+    }
+    public static int[] binary_representation(int n){
+        int binary[]=new int[n+1];
+
+        for(int i=0;i<=n;i++){
+            binary[i]=count_bit(i);
+        }
+        return binary;
+    }
+
+    public static void main(String[] args) {
+        int n=5;
+        int ans[]=binary_representation(n);
+        System.out.println(Arrays.toString(ans));
+    }
+}
