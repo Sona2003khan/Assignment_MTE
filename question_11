@@ -2,7 +2,7 @@ import java.util.HashMap;
 
 public class mid_term_11 {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) { 
         int arr[]={-1, 1, 5, 5, 7};
         int target=6;
         int result=countPairs(arr, target);
