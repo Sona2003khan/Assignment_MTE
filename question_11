@@ -8,7 +8,7 @@ public class mid_term_11 {
         int result=countPairs(arr, target);
         System.out.println(result);
 
-    }
+    } 
     public static int countPairs(int arr[], int target) {
        
         HashMap<Integer ,Integer> map=new HashMap<>();
