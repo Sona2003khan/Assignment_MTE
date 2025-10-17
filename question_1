@@ -9,3 +9,4 @@ In binary arrays (0s and 1s), prefix sums can be used to count how many 1s are p
 ✅ 3. Detecting Subarrays with a Given Sum
 Used to check if a subarray with a specific sum exists using prefix sums and hash maps (commonly in more advanced techniques).
  
+  
