@@ -3,7 +3,7 @@ A prefix sum array is an array that stores the cumulative sum of elements from t
 ✅ 1. Range Sum Queries
 Efficiently find the sum of elements between two indices l and r in O(1) time after O(n) preprocessing.
    
-✅ 2. Count of Elements in a Range
+✅ 2. Count of Elements in a Range 
 In binary arrays (0s and 1s), prefix sums can be used to count how many 1s are present between any two indices.
    
 ✅ 3. Detecting Subarrays with a Given Sum
